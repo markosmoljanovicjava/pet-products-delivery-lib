@@ -27,6 +27,7 @@ public class AbstractDomainObject implements DomainObject {
         for (Field field : fields) {
             list.add(field.getName());
         }
+        list.remove(0);
         return String.join(", ", list);
     }
 

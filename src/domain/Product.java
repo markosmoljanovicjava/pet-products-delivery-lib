@@ -102,7 +102,6 @@ public class Product extends AbstractDomainObject implements Serializable {
     @Override
     public String getAttributeValuesForInsert() {
         List<String> list = new ArrayList();
-        list.add(id.toString());
         list.add(String.format("'%s'", name));
         list.add(price.toString());
         list.add(manufacturer.getId().toString());
