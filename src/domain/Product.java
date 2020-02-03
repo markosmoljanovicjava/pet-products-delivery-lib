@@ -103,7 +103,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     public String getAttributeValuesForInsert() {
         List<String> list = new ArrayList();
         list.add(id.toString());
-        list.add("'" + name + "'");
+        list.add(String.format("'%s'", name));
         list.add(price.toString());
         list.add(manufacturer.getId().toString());
         return String.join(", ", list);
