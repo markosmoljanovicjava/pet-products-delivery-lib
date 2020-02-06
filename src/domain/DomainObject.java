@@ -20,4 +20,8 @@ public interface DomainObject {
     Boolean isAutoIncrement();
 
     void setObjectId(Long id);
+
+    String getConditionForEquals();
+
+    String getConditionForEqualsError();
 }

@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author remar
  */
-public class User implements Serializable {
+public class User extends AbstractDomainObject implements Serializable {
 
     private Long id;
     private String firstName;
@@ -113,6 +113,16 @@ public class User implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getConditionForEquals() {
+        return String.format("username='%s' and password='%s'", username, password);
+    }
+
+    @Override
+    public String getConditionForEqualsError() {
+        return "Your login credentials don't match an account in our system.";
     }
 
 }
