@@ -6,6 +6,8 @@
 package domain;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 /**
@@ -123,6 +125,11 @@ public class User extends AbstractDomainObject implements Serializable {
     @Override
     public String getConditionForEqualsError() {
         return "Your login credentials don't match an account in our system.";
+    }
+
+    @Override
+    public DomainObject getObject(ResultSet rs) throws SQLException {
+        return new User(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
     }
 
 }

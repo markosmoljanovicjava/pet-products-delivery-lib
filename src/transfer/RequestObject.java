@@ -19,6 +19,10 @@ public class RequestObject implements Serializable {
     public RequestObject() {
     }
 
+    public RequestObject(int operation) {
+        this.operation = operation;
+    }
+
     public RequestObject(int operation, Object data) {
         this.operation = operation;
         this.data = data;

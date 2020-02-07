@@ -5,6 +5,10 @@
  */
 package domain;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author marko
@@ -24,4 +28,8 @@ public interface DomainObject {
     String getConditionForEquals();
 
     String getConditionForEqualsError();
+
+    DomainObject getObject(ResultSet rs) throws SQLException;
+
+    List<DomainObject> getList(ResultSet rs) throws SQLException;
 }
