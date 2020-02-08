@@ -16,5 +16,7 @@ public interface Operation extends Serializable {
     public static final int LOGIN = 1;
     public static final int SAVE_PRODUCT = 2;
     public static final int GET_ALL_MANUFACTURERS = 3;
+    public static final int UPDATE_PRODUCT = 4;
+    public static final int GET_ALL_PRODUCTS = 5;
 
 }

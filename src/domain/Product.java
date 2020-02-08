@@ -7,6 +7,8 @@ package domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -116,6 +118,36 @@ public class Product extends AbstractDomainObject implements Serializable {
     @Override
     public void setObjectId(Long id) {
         setId(id);
+    }
+
+    @Override
+    public String getSET() {
+        return String.format("name = '%s', price = %s, manufacturer = %s", name, price, manufacturer.getId());
+    }
+
+    @Override
+    public String getWHERE() {
+        return String.format("id = %s", id);
+    }
+
+    @Override
+    public String getAttributeNamesForJoin() {
+        return "product.id, product.name, product.price, manufacturer.id, manufacturer.name, manufacturer.adress, manufacturer.phoneNumber";
+    }
+
+    @Override
+    public String getConditionForJoin() {
+        return "INNER JOIN manufacturer manufacturer ON product.manufacturer = manufacturer.id";
+    }
+
+    @Override
+    public List<DomainObject> getList(ResultSet rs) throws SQLException {
+        List<DomainObject> list = new ArrayList();
+        while (rs.next()) {
+            list.add(new Product(rs.getLong(1), rs.getString(2), rs.getBigDecimal(3),
+                    new Manufacturer(rs.getLong(4), rs.getString(5), rs.getString(6), rs.getString(7))));
+        }
+        return list;
     }
 
 }

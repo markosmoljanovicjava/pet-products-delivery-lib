@@ -32,4 +32,15 @@ public interface DomainObject {
     DomainObject getObject(ResultSet rs) throws SQLException;
 
     List<DomainObject> getList(ResultSet rs) throws SQLException;
+
+    String getSET();
+
+    String getWHERE();
+
+    String getAttributeNamesForJoin();
+
+    String getTableNameForJoin();
+
+    String getConditionForJoin();
+
 }
