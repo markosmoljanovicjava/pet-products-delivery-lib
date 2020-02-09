@@ -150,4 +150,14 @@ public class Product extends AbstractDomainObject implements Serializable {
         return list;
     }
 
+    @Override
+    public String getORDERBYForJoin() {
+        return "product.name";
+    }
+
+    @Override
+    public String getConditionForEquals() {
+        return String.format("id = %s", id);
+    }
+
 }
