@@ -87,7 +87,7 @@ public class User extends AbstractDomainObject implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", password=" + password + '}';
+        return String.format("%s %s", firstName, lastName);
     }
 
     @Override

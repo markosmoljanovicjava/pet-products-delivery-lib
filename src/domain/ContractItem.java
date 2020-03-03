@@ -17,34 +17,28 @@ public class ContractItem implements Serializable {
 
     private Long id;
     private Long itemNumber;
-    private String description;
     private Product product;
     private BigDecimal price;
     private BigDecimal quantity;
-    private BigDecimal amount;
     private Contract contract;
 
     public ContractItem() {
     }
 
-    public ContractItem(Long itemNumber, String description, Product product, BigDecimal price, BigDecimal quantity, BigDecimal amount, Contract contract) {
+    public ContractItem(Long itemNumber, Product product, BigDecimal price, BigDecimal quantity, Contract contract) {
         this.itemNumber = itemNumber;
-        this.description = description;
         this.product = product;
         this.price = price;
         this.quantity = quantity;
-        this.amount = amount;
         this.contract = contract;
     }
 
-    public ContractItem(Long id, Long itemNumber, String description, Product product, BigDecimal price, BigDecimal quantity, BigDecimal amount, Contract contract) {
+    public ContractItem(Long id, Long itemNumber, Product product, BigDecimal price, BigDecimal quantity, Contract contract) {
         this.id = id;
         this.itemNumber = itemNumber;
-        this.description = description;
         this.product = product;
         this.price = price;
         this.quantity = quantity;
-        this.amount = amount;
         this.contract = contract;
     }
 
@@ -72,14 +66,6 @@ public class ContractItem implements Serializable {
         this.itemNumber = itemNumber;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public Product getProduct() {
         return product;
     }
@@ -104,17 +90,9 @@ public class ContractItem implements Serializable {
         this.quantity = quantity;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
     @Override
     public String toString() {
-        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", description=" + description + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", amount=" + amount + ", contract=" + contract + '}';
+        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", contract=" + contract + '}';
     }
 
     @Override

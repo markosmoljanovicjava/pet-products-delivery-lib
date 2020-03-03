@@ -6,6 +6,7 @@
 package domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,7 @@ public class Contract implements Serializable {
     private Long id;
     private Date dateCreation;
     private Date dateExpiration;
+    private BigDecimal amount;
     private List<ContractItem> contractItems;
     private User user;
     private Customer customer;
@@ -28,18 +30,20 @@ public class Contract implements Serializable {
         contractItems = new ArrayList();
     }
 
-    public Contract(Date dateCreation, Date dateExpiration, List<ContractItem> contractItems, User user, Customer customer) {
+    public Contract(Long id, Date dateCreation, Date dateExpiration, BigDecimal amount, List<ContractItem> contractItems, User user, Customer customer) {
+        this.id = id;
         this.dateCreation = dateCreation;
         this.dateExpiration = dateExpiration;
+        this.amount = amount;
         this.contractItems = contractItems;
         this.user = user;
         this.customer = customer;
     }
 
-    public Contract(Long id, Date dateCreation, Date dateExpiration, List<ContractItem> contractItems, User user, Customer customer) {
-        this.id = id;
+    public Contract(Date dateCreation, Date dateExpiration, BigDecimal amount, List<ContractItem> contractItems, User user, Customer customer) {
         this.dateCreation = dateCreation;
         this.dateExpiration = dateExpiration;
+        this.amount = amount;
         this.contractItems = contractItems;
         this.user = user;
         this.customer = customer;
@@ -69,6 +73,14 @@ public class Contract implements Serializable {
         this.dateExpiration = dateExpiration;
     }
 
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
     public List<ContractItem> getContractItems() {
         return contractItems;
     }
@@ -95,7 +107,7 @@ public class Contract implements Serializable {
 
     @Override
     public String toString() {
-        return "Contract{" + "id=" + id + ", dateCreation=" + dateCreation + ", dateExpiration=" + dateExpiration + ", contractItems=" + contractItems + ", user=" + user + ", customer=" + customer + '}';
+        return "Contract{" + "id=" + id + ", dateCreation=" + dateCreation + ", dateExpiration=" + dateExpiration + ", amount=" + amount + ", contractItems=" + contractItems + ", user=" + user + ", customer=" + customer + '}';
     }
 
     @Override
