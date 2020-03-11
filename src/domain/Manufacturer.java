@@ -73,7 +73,7 @@ public class Manufacturer extends AbstractDomainObject implements Serializable {
 
     @Override
     public String toString() {
-        return "Manufacturer{" + "id=" + id + ", name=" + name + ", adress=" + adress + ", phoneNumber=" + phoneNumber + '}';
+        return name;
     }
 
     @Override
