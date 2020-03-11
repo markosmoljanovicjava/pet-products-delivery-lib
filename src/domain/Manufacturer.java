@@ -104,7 +104,8 @@ public class Manufacturer extends AbstractDomainObject implements Serializable {
     public List<DomainObject> getList(ResultSet rs) throws SQLException {
         List<DomainObject> list = new ArrayList();
         while (rs.next()) {
-            list.add(new Manufacturer(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            list.add(new Manufacturer(rs.getLong(1), rs.getString(2),
+                    rs.getString(3), rs.getString(4)));
         }
         return list;
     }

@@ -6,13 +6,17 @@
 package domain;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
  *
  * @author remar
  */
-public class Customer implements Serializable {
+public class Customer extends AbstractDomainObject implements Serializable {
 
     private Long id;
     private String firstName;
@@ -80,7 +84,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber + ", adress=" + adress + '}';
+        return String.format("%s %s", firstName, lastName);
     }
 
     @Override
@@ -105,6 +109,16 @@ public class Customer implements Serializable {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public List<DomainObject> getList(ResultSet rs) throws SQLException {
+        List<DomainObject> list = new ArrayList();
+        while (rs.next()) {
+            list.add(new Customer(rs.getLong(1), rs.getString(2), rs.getString(3),
+                    rs.getString(4), rs.getString(5)));
+        }
+        return list;
     }
 
 }
