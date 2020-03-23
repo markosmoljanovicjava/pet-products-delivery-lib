@@ -28,6 +28,7 @@ public class Contract implements Serializable {
 
     public Contract() {
         contractItems = new ArrayList();
+        amount = new BigDecimal(0);
     }
 
     public Contract(Long id, Date dateCreation, Date dateExpiration, BigDecimal amount, List<ContractItem> contractItems, User user, Customer customer) {

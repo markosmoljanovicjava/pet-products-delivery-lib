@@ -19,13 +19,13 @@ public class ContractItem implements Serializable {
     private Long itemNumber;
     private Product product;
     private BigDecimal price;
-    private BigDecimal quantity;
+    private Long quantity;
     private Contract contract;
 
     public ContractItem() {
     }
 
-    public ContractItem(Long itemNumber, Product product, BigDecimal price, BigDecimal quantity, Contract contract) {
+    public ContractItem(Long itemNumber, Product product, BigDecimal price, Long quantity, Contract contract) {
         this.itemNumber = itemNumber;
         this.product = product;
         this.price = price;
@@ -33,7 +33,7 @@ public class ContractItem implements Serializable {
         this.contract = contract;
     }
 
-    public ContractItem(Long id, Long itemNumber, Product product, BigDecimal price, BigDecimal quantity, Contract contract) {
+    public ContractItem(Long id, Long itemNumber, Product product, BigDecimal price, Long quantity, Contract contract) {
         this.id = id;
         this.itemNumber = itemNumber;
         this.product = product;
@@ -82,11 +82,11 @@ public class ContractItem implements Serializable {
         this.price = price;
     }
 
-    public BigDecimal getQuantity() {
+    public Long getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(BigDecimal quantity) {
+    public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
 
