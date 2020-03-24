@@ -113,7 +113,7 @@ public class ContractItem implements Serializable {
             return false;
         }
         final ContractItem other = (ContractItem) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.product, other.product)) {
             return false;
         }
         return true;
