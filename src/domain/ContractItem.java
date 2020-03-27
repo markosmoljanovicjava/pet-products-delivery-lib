@@ -21,25 +21,28 @@ public class ContractItem implements Serializable {
     private BigDecimal price;
     private Long quantity;
     private Contract contract;
+    private BigDecimal amount;
 
     public ContractItem() {
     }
 
-    public ContractItem(Long itemNumber, Product product, BigDecimal price, Long quantity, Contract contract) {
+    public ContractItem(Long itemNumber, Product product, BigDecimal price, Long quantity, Contract contract, BigDecimal amount) {
         this.itemNumber = itemNumber;
         this.product = product;
         this.price = price;
         this.quantity = quantity;
         this.contract = contract;
+        this.amount = amount;
     }
 
-    public ContractItem(Long id, Long itemNumber, Product product, BigDecimal price, Long quantity, Contract contract) {
+    public ContractItem(Long id, Long itemNumber, Product product, BigDecimal price, Long quantity, Contract contract, BigDecimal amount) {
         this.id = id;
         this.itemNumber = itemNumber;
         this.product = product;
         this.price = price;
         this.quantity = quantity;
         this.contract = contract;
+        this.amount = amount;
     }
 
     public Contract getContract() {
@@ -90,9 +93,17 @@ public class ContractItem implements Serializable {
         this.quantity = quantity;
     }
 
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
     @Override
     public String toString() {
-        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", contract=" + contract + '}';
+        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", contract=" + contract + ", amount=" + amount + '}';
     }
 
     @Override
@@ -118,5 +129,4 @@ public class ContractItem implements Serializable {
         }
         return true;
     }
-
 }
