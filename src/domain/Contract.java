@@ -16,7 +16,7 @@ import java.util.Objects;
  *
  * @author remar
  */
-public class Contract implements Serializable {
+public class Contract extends AbstractDomainObject implements Serializable {
 
     private Long id;
     private Date dateCreation;
@@ -135,4 +135,31 @@ public class Contract implements Serializable {
         return true;
     }
 
+    @Override
+    public String getAttributeNamesForInsert() {
+        String string = super.getAttributeNamesForInsert();
+        //dateCreation, dateExpiration, amount, contractItems, user, customer
+        return string.replace(", contractItems", "");
+    }
+
+    @Override
+    public String getAttributeValuesForInsert() {
+        List<String> list = new ArrayList();
+        list.add(String.format("'%s'", new java.sql.Date(dateCreation.getTime())));
+        list.add(String.format("'%s'", new java.sql.Date(dateExpiration.getTime())));
+        list.add(amount.toString());
+        list.add(user.getId().toString());
+        list.add(customer.getId().toString());
+        return String.join(", ", list);
+    }
+
+    @Override
+    public Boolean isAutoIncrement() {
+        return true;
+    }
+
+    @Override
+    public void setObjectId(Long id) {
+        setId(id);
+    }
 }

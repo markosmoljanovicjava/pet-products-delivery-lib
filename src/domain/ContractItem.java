@@ -7,13 +7,15 @@ package domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
  *
  * @author remar
  */
-public class ContractItem implements Serializable {
+public class ContractItem extends AbstractDomainObject implements Serializable {
 
     private Long id;
     private Long itemNumber;
@@ -103,7 +105,7 @@ public class ContractItem implements Serializable {
 
     @Override
     public String toString() {
-        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", contract=" + contract + ", amount=" + amount + '}';
+        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", contract=" + contract.getId() + ", amount=" + amount + '}';
     }
 
     @Override
@@ -129,4 +131,27 @@ public class ContractItem implements Serializable {
         }
         return true;
     }
+
+    @Override
+    public String getAttributeValuesForInsert() {
+        List<String> list = new ArrayList();
+        list.add(itemNumber.toString());
+        list.add(product.getId().toString());
+        list.add(price.toString());
+        list.add(quantity.toString());
+        list.add(contract.getId().toString());
+        list.add(amount.toString());
+        return String.join(", ", list);
+    }
+
+    @Override
+    public Boolean isAutoIncrement() {
+        return true;
+    }
+
+    @Override
+    public void setObjectId(Long id) {
+        setId(id);
+    }
+
 }

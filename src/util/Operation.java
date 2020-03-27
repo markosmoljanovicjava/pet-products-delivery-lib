@@ -21,5 +21,6 @@ public interface Operation extends Serializable {
     public static final int DELETE_PRODUCT = 6;
     public static final int GET_ALL_CUSTOMERS = 7;
     public static final int GET_ALL_PRODUCST_FOR_MANUFACTURER = 8;
+    public static final int SAVE_CONTRACT = 9;
 
 }
