@@ -7,6 +7,7 @@ package domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -108,7 +109,11 @@ public class Contract extends AbstractDomainObject implements Serializable {
 
     @Override
     public String toString() {
-        return "Contract{" + "id=" + id + ", dateCreation=" + dateCreation + ", dateExpiration=" + dateExpiration + ", amount=" + amount + ", contractItems=" + contractItems + ", user=" + user + ", customer=" + customer + '}';
+        String string = String.format("Date: %s-%s; Amount: %s; Items: %s; User: %s; Customer: %s", 
+                new SimpleDateFormat("yyyy.MM.dd").format(dateCreation),
+                new SimpleDateFormat("yyyy.MM.dd").format(dateExpiration),
+                amount, contractItems, user, customer);
+        return string;
     }
 
     @Override

@@ -105,7 +105,7 @@ public class ContractItem extends AbstractDomainObject implements Serializable {
 
     @Override
     public String toString() {
-        return "ContractItem{" + "id=" + id + ", itemNumber=" + itemNumber + ", product=" + product + ", price=" + price + ", quantity=" + quantity + ", contract=" + contract.getId() + ", amount=" + amount + '}';
+        return String.format("%s. %s", itemNumber, product);
     }
 
     @Override

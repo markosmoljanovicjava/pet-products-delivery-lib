@@ -74,7 +74,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", naziv=" + name + ", price=" + price + ", manufacturer=" + manufacturer + '}';
+        return name;
     }
     
     @Override
