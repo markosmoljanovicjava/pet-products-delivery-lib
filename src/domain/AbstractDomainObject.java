@@ -17,6 +17,12 @@ import java.util.List;
  */
 public class AbstractDomainObject implements DomainObject {
 
+    protected final List<String> attributes;
+
+    public AbstractDomainObject() {
+        attributes = createListAttributes();
+    }
+
     @Override
     public String getTableName() {
         return this.getClass().getSimpleName();
@@ -100,8 +106,17 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getConditionForWhere() {
+    public String getConditionForWhere(DomainObject domainObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private List<String> createListAttributes() {
+        Field[] fields = this.getClass().getDeclaredFields();
+        List<String> list = new ArrayList();
+        for (Field field : fields) {
+            list.add(field.getName());
+        }
+        return list;
     }
 
 }

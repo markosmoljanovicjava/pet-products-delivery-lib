@@ -45,6 +45,6 @@ public interface DomainObject {
 
     String getORDERBYForJoin();
 
-    String getConditionForWhere();
+    String getConditionForWhere(DomainObject domainObject);
 
 }

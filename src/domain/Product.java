@@ -161,8 +161,25 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getConditionForWhere() {
-        return String.format("manufacturer = %s", manufacturer.getId());
+    public String getConditionForWhere(DomainObject domainObject) {
+        String string = "";
+        Product product = (Product) domainObject;
+        if (product.getId() != null) {
+            string += String.format("product.%s = %s AND ", attributes.get(0), id);
+        }
+        if (product.getName() != null) {
+            string += String.format("product.%s = '%s' AND ", attributes.get(1), name);
+        }
+        if (product.getPrice() != null) {
+            string += String.format("product.%s = %s AND ", attributes.get(2), price);
+        }
+        if (product.getManufacturer() != null) {
+            string += String.format("%s = %s", attributes.get(3), manufacturer.getId());
+        }
+        if (string.endsWith("AND ")) {
+            string = string.substring(0, string.length() - 4);
+        }
+        return string;
     }
 
 }
