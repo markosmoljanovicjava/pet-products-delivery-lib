@@ -11,6 +11,6 @@ import java.io.Serializable;
  *
  * @author student1
  */
-public enum ResponseStatus implements Serializable{
-    SUCCESS,ERROR
+public enum ResponseStatus implements Serializable {
+    SUCCESS, ERROR
 }

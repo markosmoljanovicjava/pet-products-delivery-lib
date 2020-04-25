@@ -109,7 +109,7 @@ public class Contract extends AbstractDomainObject implements Serializable {
 
     @Override
     public String toString() {
-        String string = String.format("Date: %s-%s; Amount: %s; Items: %s; User: %s; Customer: %s", 
+        String string = String.format("Date: %s-%s; Amount: %s; Items: %s; User: %s; Customer: %s",
                 new SimpleDateFormat("yyyy.MM.dd").format(dateCreation),
                 new SimpleDateFormat("yyyy.MM.dd").format(dateExpiration),
                 amount, contractItems, user, customer);
