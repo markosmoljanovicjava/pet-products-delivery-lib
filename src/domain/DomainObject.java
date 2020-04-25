@@ -42,9 +42,9 @@ public interface DomainObject {
     String getTableNameForJoin();
 
     String getConditionForJoin();
-    
+
     String getORDERBYForJoin();
-    
+
     String getConditionForWhere();
 
 }
