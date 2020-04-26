@@ -124,19 +124,19 @@ public class User extends AbstractDomainObject implements Serializable {
         String string = "";
         User user = (User) domainObject;
         if (user.getId() != null) {
-            string += String.format("%s = %s AND ", attributes.get(0), id);
+            string += String.format("%s = %s AND ", attributeNames.get(0), id);
         }
         if (user.getFirstName() != null) {
-            string += String.format("%s = '%s' AND ", attributes.get(1), firstName);
+            string += String.format("%s = '%s' AND ", attributeNames.get(1), firstName);
         }
         if (user.getLastName() != null) {
-            string += String.format("%s = '%s' AND ", attributes.get(2), lastName);
+            string += String.format("%s = '%s' AND ", attributeNames.get(2), lastName);
         }
         if (user.getUsername() != null) {
-            string += String.format("%s = '%s' AND ", attributes.get(3), username);
+            string += String.format("%s = '%s' AND ", attributeNames.get(3), username);
         }
         if (user.getPassword() != null) {
-            string += String.format("%s = '%s'", attributes.get(4), password);
+            string += String.format("%s = '%s'", attributeNames.get(4), password);
         }
         if (string.endsWith("AND ")) {
             string = string.substring(0, string.length() - 4);

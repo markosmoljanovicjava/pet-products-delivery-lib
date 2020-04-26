@@ -102,7 +102,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getAttributeValuesForInsert() {
+    public String getAttributeValuesInsert() {
         List<String> list = new ArrayList();
         list.add(String.format("'%s'", name));
         list.add(price.toString());
@@ -159,16 +159,16 @@ public class Product extends AbstractDomainObject implements Serializable {
         String string = "";
         Product product = (Product) domainObject;
         if (product.getId() != null) {
-            string += String.format("%s%s = %s AND ", prefix, attributes.get(0), id);
+            string += String.format("%s%s = %s AND ", prefix, attributeNames.get(0), id);
         }
         if (product.getName() != null) {
-            string += String.format("%s%s = '%s' AND ", prefix, attributes.get(1), name);
+            string += String.format("%s%s = '%s' AND ", prefix, attributeNames.get(1), name);
         }
         if (product.getPrice() != null) {
-            string += String.format("%s%s = %s AND ", prefix, attributes.get(2), price);
+            string += String.format("%s%s = %s AND ", prefix, attributeNames.get(2), price);
         }
         if (product.getManufacturer() != null) {
-            string += String.format("%s = %s", attributes.get(3), manufacturer.getId());
+            string += String.format("%s = %s", attributeNames.get(3), manufacturer.getId());
         }
         if (string.endsWith("AND ")) {
             string = string.substring(0, string.length() - 4);

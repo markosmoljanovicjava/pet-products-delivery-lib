@@ -17,11 +17,11 @@ import java.util.List;
  */
 public class AbstractDomainObject implements DomainObject {
 
-    protected final List<String> attributes;
+    protected final List<String> attributeNames;
     protected final String tableName;
 
     public AbstractDomainObject() {
-        attributes = createListAttributes();
+        attributeNames = createListAttributes();
         tableName = this.getClass().getSimpleName();
     }
 
@@ -40,14 +40,14 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getAttributeNamesForInsert() {
-        List<String> list = new ArrayList<>(attributes);
+    public String getAttributeNamesInsert() {
+        List<String> list = new ArrayList<>(attributeNames);
         list.remove(0);
         return String.join(", ", list);
     }
 
     @Override
-    public String getAttributeValuesForInsert() {
+    public String getAttributeValuesInsert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

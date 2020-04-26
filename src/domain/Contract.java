@@ -141,14 +141,14 @@ public class Contract extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getAttributeNamesForInsert() {
-        String string = super.getAttributeNamesForInsert();
+    public String getAttributeNamesInsert() {
+        String string = super.getAttributeNamesInsert();
         //dateCreation, dateExpiration, amount, contractItems, user, customer
         return string.replace(", contractItems", "");
     }
 
     @Override
-    public String getAttributeValuesForInsert() {
+    public String getAttributeValuesInsert() {
         List<String> list = new ArrayList();
         list.add(String.format("'%s'", new java.sql.Date(dateCreation.getTime())));
         list.add(String.format("'%s'", new java.sql.Date(dateExpiration.getTime())));

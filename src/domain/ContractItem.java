@@ -133,7 +133,7 @@ public class ContractItem extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getAttributeValuesForInsert() {
+    public String getAttributeValuesInsert() {
         List<String> list = new ArrayList();
         list.add(itemNumber.toString());
         list.add(product.getId().toString());

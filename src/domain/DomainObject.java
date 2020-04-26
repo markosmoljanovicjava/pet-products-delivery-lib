@@ -17,9 +17,9 @@ public interface DomainObject {
 
     String getTableName();
 
-    String getAttributeNamesForInsert();
+    String getAttributeNamesInsert();
 
-    String getAttributeValuesForInsert();
+    String getAttributeValuesInsert();
 
     Boolean isAutoIncrement();
 
