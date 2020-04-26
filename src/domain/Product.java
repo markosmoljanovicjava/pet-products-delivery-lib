@@ -121,6 +121,11 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
+    public Long getObjectId() {
+        return id;
+    }
+
+    @Override
     public String getSet() {
         return String.format("name = '%s', price = %s, manufacturer = %s", name, price, manufacturer.getId());
     }
@@ -179,10 +184,4 @@ public class Product extends AbstractDomainObject implements Serializable {
         }
         return string;
     }
-
-    @Override
-    public Long getObjectId() {
-        return id;
-    }
-
 }
