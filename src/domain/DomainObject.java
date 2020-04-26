@@ -29,8 +29,6 @@ public interface DomainObject {
 
     String getWhere(DomainObject domainObject, Boolean isJoin);
 
-    DomainObject getObject(ResultSet rs) throws SQLException;
-
     List<DomainObject> getList(ResultSet rs) throws SQLException;
 
     String getSET();

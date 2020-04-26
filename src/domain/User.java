@@ -152,10 +152,4 @@ public class User extends AbstractDomainObject implements Serializable {
         }
         return list;
     }
-
-    @Override
-    public DomainObject getObject(ResultSet rs) throws SQLException {
-        return new User(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
-    }
-
 }
