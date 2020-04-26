@@ -156,22 +156,21 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getConditionSelectWhere() {
-        return String.format("id = %s", id);
-    }
-
-    @Override
-    public String getConditionForWhere(DomainObject domainObject) {
+    public String getConditionWhere(DomainObject domainObject, Boolean isJoin) {
+        String prefix = "";
+        if (isJoin) {
+            prefix = tableName.toLowerCase() + ".";
+        }
         String string = "";
         Product product = (Product) domainObject;
         if (product.getId() != null) {
-            string += String.format("product.%s = %s AND ", attributes.get(0), id);
+            string += String.format("%s%s = %s AND ", prefix, attributes.get(0), id);
         }
         if (product.getName() != null) {
-            string += String.format("product.%s = '%s' AND ", attributes.get(1), name);
+            string += String.format("%s%s = '%s' AND ", prefix, attributes.get(1), name);
         }
         if (product.getPrice() != null) {
-            string += String.format("product.%s = %s AND ", attributes.get(2), price);
+            string += String.format("%s%s = %s AND ", prefix, attributes.get(2), price);
         }
         if (product.getManufacturer() != null) {
             string += String.format("%s = %s", attributes.get(3), manufacturer.getId());
@@ -181,5 +180,4 @@ public class Product extends AbstractDomainObject implements Serializable {
         }
         return string;
     }
-
 }

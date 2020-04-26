@@ -18,9 +18,11 @@ import java.util.List;
 public class AbstractDomainObject implements DomainObject {
 
     protected final List<String> attributes;
+    protected final String tableName;
 
     public AbstractDomainObject() {
         attributes = createListAttributes();
+        tableName = this.getClass().getSimpleName();
     }
 
     private List<String> createListAttributes() {
@@ -34,7 +36,7 @@ public class AbstractDomainObject implements DomainObject {
 
     @Override
     public String getTableName() {
-        return this.getClass().getSimpleName();
+        return tableName;
     }
 
     @Override
@@ -111,7 +113,7 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getConditionSelectWhere1(DomainObject domainObject) {
+    public String getConditionWhere(DomainObject domainObject, Boolean isJoin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
