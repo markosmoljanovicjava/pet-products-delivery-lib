@@ -154,7 +154,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     public String getWhere(DomainObject domainObject, Boolean isJoin) {
         String prefix = "";
         if (isJoin) {
-            prefix = tableName.toLowerCase() + ".";
+            prefix = tableName + ".";
         }
         String string = "";
         Product product = (Product) domainObject;

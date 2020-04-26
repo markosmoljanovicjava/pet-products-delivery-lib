@@ -35,8 +35,6 @@ public interface DomainObject {
 
     String getAttributeNamesForJoin();
 
-    String getTableNameForJoin();
-
     String getConditionForJoin();
 
     String getORDERBYForJoin();
