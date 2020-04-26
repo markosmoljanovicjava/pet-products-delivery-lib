@@ -25,9 +25,9 @@ public interface DomainObject {
 
     void setObjectId(Long id);
 
-    String getConditionForEquals();
+    String getConditionSelectWhere();
 
-    String getConditionForEqualsError();
+    String getConditionSelectWhere1(DomainObject domainObject);
 
     DomainObject getObject(ResultSet rs) throws SQLException;
 

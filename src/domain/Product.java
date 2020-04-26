@@ -156,7 +156,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getConditionForEquals() {
+    public String getConditionSelectWhere() {
         return String.format("id = %s", id);
     }
 

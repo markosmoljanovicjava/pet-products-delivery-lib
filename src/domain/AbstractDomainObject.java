@@ -60,12 +60,7 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getConditionForEquals() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getConditionForEqualsError() {
+    public String getConditionSelectWhere() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -112,6 +107,11 @@ public class AbstractDomainObject implements DomainObject {
 
     @Override
     public String getConditionForWhere(DomainObject domainObject) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getConditionSelectWhere1(DomainObject domainObject) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

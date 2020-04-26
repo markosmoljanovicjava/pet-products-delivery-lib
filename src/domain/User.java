@@ -8,6 +8,8 @@ package domain;
 import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -118,13 +120,37 @@ public class User extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getConditionForEquals() {
-        return String.format("username='%s' and password='%s'", username, password);
+    public String getConditionSelectWhere1(DomainObject domainObject) {
+        String string = "";
+        User user = (User) domainObject;
+        if (user.getId() != null) {
+            string += String.format("%s = %s AND ", attributes.get(0), id);
+        }
+        if (user.getFirstName() != null) {
+            string += String.format("%s = '%s' AND ", attributes.get(1), firstName);
+        }
+        if (user.getLastName() != null) {
+            string += String.format("%s = '%s' AND ", attributes.get(2), lastName);
+        }
+        if (user.getUsername() != null) {
+            string += String.format("%s = '%s' AND ", attributes.get(3), username);
+        }
+        if (user.getPassword() != null) {
+            string += String.format("%s = '%s'", attributes.get(4), password);
+        }
+        if (string.endsWith("AND ")) {
+            string = string.substring(0, string.length() - 4);
+        }
+        return string;
     }
 
     @Override
-    public String getConditionForEqualsError() {
-        return "Your login credentials don't match an account in our system.";
+    public List<DomainObject> getList(ResultSet rs) throws SQLException {
+        List<DomainObject> list = new ArrayList();
+        while (rs.next()) {
+            list.add(new User(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+        }
+        return list;
     }
 
     @Override
