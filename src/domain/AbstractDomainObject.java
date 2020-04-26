@@ -62,11 +62,6 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getConditionSelectWhere() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public DomainObject getObject(ResultSet rs) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

@@ -25,8 +25,6 @@ public interface DomainObject {
 
     void setObjectId(Long id);
 
-    String getConditionSelectWhere();
-
     String getConditionWhere(DomainObject domainObject, Boolean isJoin);
 
     DomainObject getObject(ResultSet rs) throws SQLException;
