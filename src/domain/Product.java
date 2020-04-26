@@ -121,7 +121,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getSET() {
+    public String getSet() {
         return String.format("name = '%s', price = %s, manufacturer = %s", name, price, manufacturer.getId());
     }
 

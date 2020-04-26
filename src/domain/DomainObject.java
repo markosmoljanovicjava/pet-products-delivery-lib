@@ -31,7 +31,7 @@ public interface DomainObject {
 
     List<DomainObject> getList(ResultSet rs) throws SQLException;
 
-    String getSET();
+    String getSet();
 
     String getAttributeNamesForJoin();
 
