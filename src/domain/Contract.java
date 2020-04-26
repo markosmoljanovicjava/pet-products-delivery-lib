@@ -143,7 +143,6 @@ public class Contract extends AbstractDomainObject implements Serializable {
     @Override
     public String getAttributeNamesInsert() {
         String string = super.getAttributeNamesInsert();
-        //dateCreation, dateExpiration, amount, contractItems, user, customer
         return string.replace(", contractItems", "");
     }
 
