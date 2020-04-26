@@ -72,22 +72,17 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getAttributeNamesForJoin() {
+    public String getAttributeNamesJoin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getConditionForJoin() {
+    public String getJoin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public String getORDERBYForJoin() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getConditionForWhere(DomainObject domainObject) {
+    public String getOrderBy(Boolean isJoin) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

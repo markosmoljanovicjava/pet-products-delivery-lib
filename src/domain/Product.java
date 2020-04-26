@@ -126,13 +126,22 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getAttributeNamesForJoin() {
+    public String getAttributeNamesJoin() {
         return "product.id, product.name, product.price, manufacturer.id, manufacturer.name, manufacturer.adress, manufacturer.phoneNumber";
     }
 
     @Override
-    public String getConditionForJoin() {
+    public String getJoin() {
         return "INNER JOIN manufacturer manufacturer ON product.manufacturer = manufacturer.id";
+    }
+    
+    @Override
+    public String getOrderBy(Boolean isJoin) {
+        String prefix = "";
+        if (isJoin) {
+            prefix = tableName + ".";
+        }
+        return String.format("%sname", prefix);
     }
 
     @Override
@@ -143,11 +152,6 @@ public class Product extends AbstractDomainObject implements Serializable {
                     new Manufacturer(rs.getLong(4), rs.getString(5), rs.getString(6), rs.getString(7))));
         }
         return list;
-    }
-
-    @Override
-    public String getORDERBYForJoin() {
-        return "product.name";
     }
 
     @Override

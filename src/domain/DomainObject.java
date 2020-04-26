@@ -33,12 +33,10 @@ public interface DomainObject {
 
     String getSet();
 
-    String getAttributeNamesForJoin();
+    String getAttributeNamesJoin();
 
-    String getConditionForJoin();
+    String getJoin();
 
-    String getORDERBYForJoin();
-
-    String getConditionForWhere(DomainObject domainObject);
+    String getOrderBy(Boolean isJoin);
 
 }
