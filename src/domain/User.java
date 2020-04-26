@@ -120,7 +120,7 @@ public class User extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getConditionWhere(DomainObject domainObject, Boolean isJoin) {
+    public String getWhere(DomainObject domainObject, Boolean isJoin) {
         String string = "";
         User user = (User) domainObject;
         if (user.getId() != null) {

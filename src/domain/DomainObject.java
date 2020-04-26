@@ -25,15 +25,15 @@ public interface DomainObject {
 
     void setObjectId(Long id);
 
-    String getConditionWhere(DomainObject domainObject, Boolean isJoin);
+    Long getObjectId();
+
+    String getWhere(DomainObject domainObject, Boolean isJoin);
 
     DomainObject getObject(ResultSet rs) throws SQLException;
 
     List<DomainObject> getList(ResultSet rs) throws SQLException;
 
     String getSET();
-
-    String getWHERE();
 
     String getAttributeNamesForJoin();
 

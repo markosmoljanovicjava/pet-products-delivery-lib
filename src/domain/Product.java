@@ -126,11 +126,6 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getWHERE() {
-        return String.format("id = %s", id);
-    }
-
-    @Override
     public String getAttributeNamesForJoin() {
         return "product.id, product.name, product.price, manufacturer.id, manufacturer.name, manufacturer.adress, manufacturer.phoneNumber";
     }
@@ -156,7 +151,7 @@ public class Product extends AbstractDomainObject implements Serializable {
     }
 
     @Override
-    public String getConditionWhere(DomainObject domainObject, Boolean isJoin) {
+    public String getWhere(DomainObject domainObject, Boolean isJoin) {
         String prefix = "";
         if (isJoin) {
             prefix = tableName.toLowerCase() + ".";
@@ -180,4 +175,10 @@ public class Product extends AbstractDomainObject implements Serializable {
         }
         return string;
     }
+
+    @Override
+    public Long getObjectId() {
+        return id;
+    }
+
 }

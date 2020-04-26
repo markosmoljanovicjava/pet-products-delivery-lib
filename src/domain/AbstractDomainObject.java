@@ -77,11 +77,6 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getWHERE() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public String getAttributeNamesForJoin() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -108,7 +103,12 @@ public class AbstractDomainObject implements DomainObject {
     }
 
     @Override
-    public String getConditionWhere(DomainObject domainObject, Boolean isJoin) {
+    public String getWhere(DomainObject domainObject, Boolean isJoin) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Long getObjectId() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
