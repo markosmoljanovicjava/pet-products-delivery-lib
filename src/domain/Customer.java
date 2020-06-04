@@ -121,4 +121,24 @@ public class Customer extends AbstractDomainObject implements Serializable {
         return list;
     }
 
+    @Override
+    public String getAttributeValuesInsert() {
+        List<String> list = new ArrayList();
+        list.add(String.format("'%s'", firstName));
+        list.add(String.format("'%s'", lastName));
+        list.add(String.format("'%s'", phoneNumber));
+        list.add(String.format("'%s'", adress));
+        return String.join(", ", list);
+    }
+
+    @Override
+    public Boolean isAutoIncrement() {
+        return true;
+    }
+
+    @Override
+    public void setObjectId(Long id) {
+        setId(id);
+    }
+    
 }
