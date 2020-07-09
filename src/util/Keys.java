@@ -12,6 +12,7 @@ package util;
 public interface Keys {
 
     public static final int PRODUCTS_TABLE_MODEL = 1;
+    public static final int USERS_TABLE_MODEL = 4;
     public static final int PRODUCT = 2;
     public static final int USER = 3;
 }
